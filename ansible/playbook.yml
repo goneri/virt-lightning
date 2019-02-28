@@ -32,6 +32,6 @@
         regexp: '# .local/bin path'
         line: 'export PATH=$PATH:~/.local/bin/  # .local/bin path'
     - import_role:
-        name: virt_lightning
+        name: virt-lightning
       vars:
         virt_lightning_run_tests: true
