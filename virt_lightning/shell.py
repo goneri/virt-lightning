@@ -161,6 +161,7 @@ def get_status(hv, context):
         status.append(
             {
                 "name": name,
+                "state": domain.state,
                 "ipv4": str(domain.ipv4.ip),
                 "context": domain.context,
                 "username": domain.username,
@@ -188,15 +189,21 @@ def status(configuration, context=None, **kwargs):
             "ipv4": status["ipv4"] or "waiting",
             "context": status["context"],
             "username": status["username"],
+            "state": status["state"],
         }
 
     output_template = "{computer} {name:<13}   {arrow}   {username}@{ipv4:>5}"
     for _, v in sorted(results.items()):
-        print(  # noqa: T001
-            output_template.format(
-                computer=symbols.COMPUTER.value, arrow=symbols.RIGHT_ARROW.value, **v
+        if v["state"] != "running":
+            print("{name} is not running (state: {state})".format(**v))
+        else:
+            print(  # noqa: T001
+                output_template.format(
+                    computer=symbols.COMPUTER.value,
+                    arrow=symbols.RIGHT_ARROW.value,
+                    **v
+                )
             )
-        )
 
 
 def ssh(configuration, name=None, **kwargs):

@@ -537,6 +537,18 @@ class LibvirtDomain:
     def groups(self, value):
         self.record_metadata("groups", ",".join(value))
 
+    @property
+    def state(self):
+        states = [
+            "nostate",
+            "running",
+            "blocked",
+            "paused",
+            "shutdown",
+            "crashed",
+            "pmsuspended",
+        ]
+
     def attachDisk(self, volume, device="disk", disk_type="qcow2"):
         if self.distro.startswith("esxi"):
             bus = "ide" if device == "cdrom" else "sata"
