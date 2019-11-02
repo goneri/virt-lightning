@@ -512,7 +512,8 @@ class LibvirtHypervisor:
 
     def dns_entry(self, command, name, ipv4):
         root = ET.fromstring(NETWORK_HOST_ENTRY)
-        root.find("./hostname").text = name
+        ET.SubElement(root, "hostname").text = name
+        ET.SubElement(root, "hostname").text = name + '.test'
         if command == libvirt.VIR_NETWORK_UPDATE_COMMAND_DELETE and not ipv4:
             return
         root.attrib["ip"] = str(ipv4.ip)
