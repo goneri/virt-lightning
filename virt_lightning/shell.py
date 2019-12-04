@@ -370,7 +370,7 @@ def fetch(configuration, **kwargs):
     storage_dir = hv.get_storage_dir()
     try:
         r = urllib.request.urlopen(
-            "https://virt-lightning.org/images/{distro}/{distro}.qcow2".format(**kwargs)
+            "https://virt-lightning.org/images/{distro}/disk.qcow2".format(**kwargs)
         )
     except urllib.error.HTTPError as e:
         if e.code == 404:
@@ -409,7 +409,7 @@ def fetch(configuration, **kwargs):
     temp_file.rename(target_file)
     try:
         r = urllib.request.urlopen(
-            "https://virt-lightning.org/images/{distro}/{distro}.yaml".format(**kwargs)
+            "https://virt-lightning.org/images/{distro}/info.yaml".format(**kwargs)
         )
     except urllib.error.HTTPError as e:
         if e.code == 404:
