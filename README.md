@@ -57,7 +57,7 @@ sudo usermod -a -G kvm,libvirt,libvirt-qemu $USER
 
 First you need to install libvirt and guestfs:
 ```shell
-sudo dnf install -f libselinux-python libvirt libvirt-daemon python3 python3-libvirt python3-pip python3-urwid
+sudo dnf install libselinux-python libvirt libvirt-daemon python3 python3-libvirt python3-pip python3-urwid
 sudo systemctl start --now libvirtd
 ```
 
