@@ -374,6 +374,9 @@
       ],
       "packages": [
         "sudo"
+      ],
+      "groups": [
+        "wheel"
       ]
     },
     "yaml_url": ""
@@ -393,6 +396,9 @@
       ],
       "packages": [
         "sudo"
+      ],
+      "groups": [
+        "wheel"
       ]
     },
     "yaml_url": ""
@@ -412,6 +418,9 @@
       ],
       "packages": [
         "sudo"
+      ],
+      "groups": [
+        "wheel"
       ]
     },
     "yaml_url": ""
@@ -431,6 +440,9 @@
       ],
       "packages": [
         "sudo"
+      ],
+      "groups": [
+        "wheel"
       ]
     },
     "yaml_url": ""
