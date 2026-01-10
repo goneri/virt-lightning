@@ -403,9 +403,9 @@ Commands:
             )
         except virt_lightning.api.CannotConnectToLibvirtError:
             how_to_fix_auth_error()
-        except virt_lightning.api.ImageNotFoundUpstreamError:
+        except virt_lightning.api.ImageNotFoundUpstreamError as e:
             if args.url:
-                print(f"Image cannot be downloaded from URL: {args.url}")  # noqa: T001
+                print(f"Image cannot be downloaded from URL: {args.url}", e)  # noqa: T001
             else:
                 print(  # noqa: T001
                     f"Distro {args.distro} cannot be downloaded.\n"
